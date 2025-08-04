@@ -1,0 +1,38 @@
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5 py-4 rounded" 
+        style="max-width:700px; background-color:white !important;">
+       <h1 class="display-4" style="color: #002147 !important;">Our Products</h1>
+       <p style="color: darkorange !important;">Everything you Love, all in one place</p>
+   </div>
+   
+        <div class="row g-4">
+            <div class="col-lg-6 col-xl-4" *ngFor="let product of productList">
+                <div class="p-4 rounded bg-light">
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <img [src]="product.imageUrl"class="img-fluid rounded-circle w-100" alt="">
+                        </div>
+                        <div class="col-6">
+                            <a href="#" class="h5">{{product.name}}</a>
+                            <div class="d-flex my-3">
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: orange;"></i>
+                                <i class="fas fa-star" style="color: lightblue;"></i>
+                                <i class="fas fa-star" style="color: lightblue;"></i>
+                            </div>
+                            
+                            <h4 class="mb-3">
+                                ₹{{product.price}}</h4>
+                            <a  (click)="addtocart(product)" class="btn border border-secondary rounded-pill px-3 text-primary">
+                                <i class="fa fa-cart-arrow-down me-2 text-primary"></i>Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+           
+        </div>
+    </div>
+</div>

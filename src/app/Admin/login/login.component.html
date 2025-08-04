@@ -1,0 +1,53 @@
+<div class="parent">
+    <div class="container">
+        <div class="login-box">
+          <h2 *ngIf="!isRegister">Login</h2>
+          <form id="login-form" *ngIf="!isRegister" (ngSubmit)="Onlogin()">
+            <div class="input-group">
+              <label for="email">userName</label>
+              <input type="userName" id="userName" name="loginuserName" [(ngModel)]="loginobj.userName" placeholder="Enter your userName" required>
+              <small id="email-error" class="error-message"></small>
+            </div>
+            <div class="input-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" [(ngModel)]="loginobj.password"  placeholder="Enter your password" required>
+              <small id="password-error" class="error-message"></small>
+            </div>
+    
+            <button type="submit" class="submit-btn"> Login</button>
+    
+            <div class="forgot-password">
+              <a href="#">Forgot Password?</a>
+            </div>
+          </form>
+          
+          <form id="register-form" *ngIf="isRegister" (ngSubmit)="Onregister()">
+            <h2 *ngIf="isRegister">Register</h2>
+            <div class="input-group">
+              <label for="email">UserName</label>
+              <input type="text" id="userName" name="registeruserName" [(ngModel)]="registerobj.userName" placeholder="Enter your userName" required>
+              <small id="email-error" class="error-message"></small>
+            </div>
+    
+            <div class="input-group">
+              <label for="register-password">Password</label>
+              <input type="password" id="password" name="password" [(ngModel)]="registerobj.password"  placeholder="Enter your password" required>
+              <small class="error-message"></small>
+            </div>
+            <div class="input-group">
+              <label for="confirmpassword">ConfirmPassword</label>
+              <input type="password" id="confirmpassword" name="confirmpassword" [(ngModel)]="registerobj.confirmPassword"  placeholder="Enter your password" required>
+              <small id="confirmpassword" class="error-message"></small>
+            </div>
+            <button type="submit" class="submit-btn" > Register</button>
+          </form>
+          <p class="signup-link" *ngIf="!isRegister">
+            Don't have an account? <a href="#" (click)="toggleRegister($event)">Register here</a>
+          </p>
+          <p class="signup-link" *ngIf="isRegister">
+            Already have an account? <a href="#" (click)="toggleRegister($event)">Login here</a>
+          </p>
+        </div>
+      </div>
+</div>
+
